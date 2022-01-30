@@ -1,0 +1,13 @@
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\bin\Debug\netcoreapp3.1\DAO.deps.json
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\bin\Debug\netcoreapp3.1\DAO.runtimeconfig.json
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\bin\Debug\netcoreapp3.1\DAO.runtimeconfig.dev.json
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\bin\Debug\netcoreapp3.1\DAO.dll
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\bin\Debug\netcoreapp3.1\DAO.pdb
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\obj\Debug\netcoreapp3.1\DAO.csproj.AssemblyReference.cache
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\obj\Debug\netcoreapp3.1\DAO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\obj\Debug\netcoreapp3.1\DAO.AssemblyInfoInputs.cache
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\obj\Debug\netcoreapp3.1\DAO.AssemblyInfo.cs
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\obj\Debug\netcoreapp3.1\DAO.csproj.CoreCompileInputs.cache
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\obj\Debug\netcoreapp3.1\DAO.dll
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\obj\Debug\netcoreapp3.1\DAO.pdb
+D:\Cursos\Asp Net Core\aspnetcore-wm\pet\PetShop\DAO\obj\Debug\netcoreapp3.1\DAO.genruntimeconfig.cache
