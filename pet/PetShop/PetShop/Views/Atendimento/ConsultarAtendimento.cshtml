@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Data Inicial</label>
+            <input type="date" class="form-control" id="dataInicial" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Data Final</label>
+            <input type="date" class="form-control" id="dataFinal" />
+        </div>
+    </div>
+</div>
+<button class="btn btn-primary">Pesquisar</button>
+<hr />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Ação</th>
+                        <th>Data</th>
+                        <th>Cliente</th>
+                        <th>Animal</th>
+                        <th>Funcionário</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="btn btn-warning btn-xs">Alterar</button>
+                        </td>
+                        <td>01/01/2021</td>
+                        <td>Claudinha</td>
+                        <td>Xaninha</td>
+                        <td>Selen</td>
+                        <td>R$12,00</td>
+                        <td>Teste de Descrição</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

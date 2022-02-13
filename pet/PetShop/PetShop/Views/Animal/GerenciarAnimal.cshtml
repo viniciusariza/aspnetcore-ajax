@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Cliente Selecionado</label>
+            <input class="form-control" id="cliente" readonly value="Claudinha" />
+        </div>
+        <div class="form-group">
+            <label>Nome do Animal*</label>
+            <input class="form-control" id="animal" />
+        </div>
+        <div class="form-group">
+            <label>Tipo*</label>
+            <select class="form-control" id="tipo">
+                <option>Selecione</option>
+            </select>
+        </div>
+    </div>
+</div>
+<button class="btn btn-success" onclick="Check(5)">Adicionar</button>
+<hr />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Ação</th>
+                        <th>Animal</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="btn btn-warning btn-xs">Alterar</button>
+                        </td>
+                        <td>
+                            <input class="form-control" id="animalconsulta" value="Bob" />
+                        </td>
+                        <td>
+                            <select class="form-control" id="tipoconsulta">
+                                <option>Gato</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

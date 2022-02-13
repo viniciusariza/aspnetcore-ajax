@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/ajax/geralajx.js"></script>
+<div class="col-md-12">
+    <div class="form-group">
+        <label>Nome do Cliente*</label>
+        <input class="form-control" id="nome" />
+    </div>
+    <div class="form-group">
+        <label>Telefone*</label>
+        <input class="form-control" id="tel" />
+    </div>
+    <div class="form-group">
+        <label>CEP</label>
+        <input class="form-control" id="cep" />
+    </div>
+    <div class="form-group">
+        <label>Estado*</label>
+        <select class="form-control" id="estado" onchange="CarregarCidades(this.value)">
+            <option value="">Selecione</option>
+            @foreach (var item in ViewBag.Estados)
+            {
+                <option value="@item.IdEstado">@item.NomeEstado - @item.SiglaEstado</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Cidade*</label>
+        <select class="form-control" id="cidade">
+            <option value="">Selecione</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Rua*</label>
+        <input class="form-control" id="rua" />
+    </div>
+    <div class="form-group">
+        <label>Bairro*</label>
+        <input class="form-control" id="bairro" />
+    </div>
+    <div class="form-group">
+        <label>Complemento</label>
+        <input class="form-control" id="complemento" />
+    </div>
+</div>
+<button class="btn btn-success" onclick="Check(1)">Cadastrar</button>
