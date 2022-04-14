@@ -16,6 +16,7 @@ namespace DAO
         public int IdAtendimento { get; set; }
         public int IdCliente { get; set; }
         public int IdAnimal { get; set; }
+        public int IdFuncionario { get; set; }
 
     }
 }

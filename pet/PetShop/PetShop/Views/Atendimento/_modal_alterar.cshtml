@@ -1,5 +1,59 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<div class="modal fade" id="modal-alterar">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Alterar Atendimento</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Cliente Selecionado</label>
+                        <input hidden id="cod" value="@ViewBag.Id" />
+                        <input class="form-control" id="cliente" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label>Data do Atendimento*</label>
+                        <input type="date" class="form-control" id="data" />
+                    </div>
+                    <div class="form-group">
+                        <label>Selecione o Animal*</label>
+                        <select class="form-control" id="animal">
+                            <option value="">Selecione</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Selecione o Funcionário*</label>
+                        <select class="form-control" id="funcionario">
+                            <option value="">Selecione</option>
+                            @foreach (var item in ViewBag.Funcionarios)
+                            {
+                                <option value="@item.IdFuncionario">@item.Nome</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Valor*</label>
+                        <input class="form-control" id="valor" />
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição do Atendimento</label>
+                        <textarea class="form-control" placeholder="Digite aqui..." id="descricao"></textarea>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="AlterarAtendimento()">Alterar</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

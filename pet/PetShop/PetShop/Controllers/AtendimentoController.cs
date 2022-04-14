@@ -24,6 +24,8 @@ namespace PetShop.Controllers
         public IActionResult ConsultarAtendimento()
         {
             PaginaAtual(Paginas.ConsultarAtendimento);
+            CarregarFuncionarios(CodigoLogado);
+            Datas();
             return View();
         }
         public IActionResult AlterarAtendimento()
@@ -56,6 +58,19 @@ namespace PetShop.Controllers
             return Json(new AtendimentoDAO().DetalharAtendimento(id));
         }
 
+        public JsonResult FiltrarAnimaisCliente(int idCliente)
+        {
+            return Json(new AnimalDAO().FiltrarAnimalCliente(idCliente));
+        }
+
+        public int AlteraAtedimento(string dadosAtendimentoJson)
+        {
+                TbAtendimento objAtendimento = JsonConvert.DeserializeObject<TbAtendimento>(dadosAtendimentoJson);
+
+                AtendimentoDAO objDao = new AtendimentoDAO();
+                return objDao.AlterarAtendimento(objAtendimento);
+        }
+
         #endregion
 
         #region Funções que criam ViewBags
@@ -73,6 +88,12 @@ namespace PetShop.Controllers
         {
             ViewBag.Id = Convert.ToInt32(idNome.Split('-')[0]);
             ViewBag.NomeCliente = idNome.Split('-')[1];
+        }
+
+        private void Datas()
+        {
+            ViewBag.DataInicial = DateTime.Today.AddMonths(-1).ToString("yyyy-MM-dd");
+            ViewBag.DataFinal = DateTime.Today.ToString("yyyy-MM-dd");
         }
 
         #endregion

@@ -7,13 +7,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Data Inicial</label>
-            <input type="date" class="form-control" id="dataInicial" />
+            <input type="date" class="form-control" id="dataInicial" value="@ViewBag.DataInicial" />
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
             <label>Data Final</label>
-            <input type="date" class="form-control" id="dataFinal" />
+            <input type="date" class="form-control" id="dataFinal" value="@ViewBag.DataFinal"/>
         </div>
     </div>
 </div>
@@ -28,3 +28,4 @@
     </div>
 </div>
 <script src="~/ajax/atendimento.js"></script>
+@await Html.PartialAsync("_modal_alterar")
