@@ -6,7 +6,8 @@
 <div class="col-md-12">
     <div class="form-group">
         <label>Cliente Selecionado</label>
-        <input class="form-control" id="nome" readonly />
+        <input hidden id="cod" value="@ViewBag.Id" />
+        <input class="form-control" id="nome" readonly value="@ViewBag.NomeCliente" />
     </div>
     <div class="form-group">
         <label>Data do Atendimento*</label>
@@ -16,12 +17,20 @@
         <label>Selecione o Animal*</label>
         <select class="form-control" id="animal">
             <option value="">Selecione</option>
+            @foreach (var item in ViewBag.Animais)
+            {
+                <option value="@item.Id">@item.Nome</option>
+            }
         </select>
     </div>
     <div class="form-group">
-        <label>Selecione o Funcionário</label>
+        <label>Selecione o Funcionário*</label>
         <select class="form-control" id="funcionario">
             <option value="">Selecione</option>
+            @foreach (var item in ViewBag.Funcionarios)
+            {
+                <option value="@item.IdFuncionario">@item.Nome</option>
+            }
         </select>
     </div>
     <div class="form-group">
@@ -30,7 +39,9 @@
     </div>
     <div class="form-group">
         <label>Descrição do Atendimento</label>
-        <textarea class="form-control" id="descricao"></textarea>
+        <textarea class="form-control" placeholder="Digite aqui..." id="descricao"></textarea>
     </div>
 </div>
-<button class="btn btn-success" onclick="Check(6)">Finalizar Atendimento</button>
+<button class="btn btn-success" onclick="NovoAtendimento()">Finalizar Atendimento</button>
+<script src="~/ajax/geralajx.js"></script>
+<script src="~/ajax/atendimento.js"></script>

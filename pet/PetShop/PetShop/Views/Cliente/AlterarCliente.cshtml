@@ -1,49 +1,54 @@
-﻿
+﻿@model DAO.model.TbCliente
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="col-md-12">
     <div class="form-group">
+        <input id="cod" type="hidden" value="@Model.IdCliente" />
         <label>Nome do Cliente*</label>
-        <input class="form-control" id="nome" />
+        <input class="form-control" id="nome" value="@Model.Nome" />
     </div>
     <div class="form-group">
         <label>Telefone*</label>
-        <input class="form-control" id="tel" />
+        <input class="form-control" id="tel" value="@Model.Telefone" />
     </div>
     <div class="form-group">
         <label>CEP</label>
-        <input class="form-control" id="cep" />
+        <input class="form-control" id="cep" value="@Model.TbEndereco.FirstOrDefault().Cep" />
     </div>
     <div class="form-group">
         <label>Estado*</label>
-        <select class="form-control" id="estado">
+        <select class="form-control" id="estado" onchange="CarregarCidades(this.value)">
             <option value="">Selecione</option>
             @foreach (var item in ViewBag.Estados)
             {
-                <option value="@item.IdEstado">@item.NomeEstado - @item.SiglaEstado</option>
+                <option value="@item.IdEstado" @(item.IdEstado == Model.TbEndereco.FirstOrDefault().Cidade.EstadoId ? "selected" : "")>@item.NomeEstado - @item.SiglaEstado</option>
             }
         </select>
     </div>
     <div class="form-group">
         <label>Cidade*</label>
         <select class="form-control" id="cidade">
-            <option value="">Selecione</option>
+            @foreach (var item in ViewBag.ListaCidades)
+            {
+                <option value="@item.IdCidade" @(item.IdCidade == Model.TbEndereco.FirstOrDefault().CidadeId ? "selected" : "")>@item.NomeCidade</option>
+            }
         </select>
     </div>
     <div class="form-group">
         <label>Rua*</label>
-        <input class="form-control" id="rua" />
+        <input class="form-control" id="rua" value="@Model.TbEndereco.FirstOrDefault().Rua" />
     </div>
     <div class="form-group">
         <label>Bairro*</label>
-        <input class="form-control" id="bairro" />
+        <input class="form-control" id="bairro" value="@Model.TbEndereco.FirstOrDefault().Bairro" />
     </div>
     <div class="form-group">
         <label>Complemento</label>
-        <input class="form-control" id="complemento" />
+        <input class="form-control" id="complemento" value="@Model.TbEndereco.FirstOrDefault().Complemento" />
     </div>
 </div>
-<button class="btn btn-success" onclick="Check(2)">Alterar</button>
+<button class="btn btn-success" onclick="AlteraCliente()">Alterar</button>
 <script src="~/ajax/geralajx.js"></script>
+<script src="~/ajax/clienteajx.js"></script>

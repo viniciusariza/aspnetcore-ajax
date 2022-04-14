@@ -6,9 +6,10 @@
 
 <div class="row">
     <div class="col-md-12">
+        <input type="hidden" id="cod" value="@ViewBag.Cod" />
         <div class="form-group">
             <label>Cliente Selecionado</label>
-            <input class="form-control" id="cliente" readonly value="Claudinha" />
+            <input class="form-control" id="cliente" readonly value="@ViewBag.Nome" />
         </div>
         <div class="form-group">
             <label>Nome do Animal*</label>
@@ -17,17 +18,20 @@
         <div class="form-group">
             <label>Tipo*</label>
             <select class="form-control" id="tipo">
-                <option>Selecione</option>
+                <option value="">Selecione</option>
+                <option value="1">Cachorro</option>
+                <option value="2">Gato</option>
             </select>
         </div>
     </div>
 </div>
-<button class="btn btn-success" onclick="Check(5)">Adicionar</button>
+<button class="btn btn-success" onclick="CadastrarAnimal()">Adicionar</button>
 <hr />
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <table class="table table-hover">
+
+            <table class="table table-hover" id="tabelaAnimal">
                 <thead>
                     <tr>
                         <th>Ação</th>
@@ -36,21 +40,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <button class="btn btn-warning btn-xs">Alterar</button>
-                        </td>
-                        <td>
-                            <input class="form-control" id="animalconsulta" value="Bob" />
-                        </td>
-                        <td>
-                            <select class="form-control" id="tipoconsulta">
-                                <option>Gato</option>
-                            </select>
-                        </td>
-                    </tr>
+                    @foreach (var item in ViewBag.Animais)
+                    {
+                        <tr>
+                            <td>
+                                <input type="hidden" id="id_animal_@item.Id" value="@item.Id" />
+                                <button class="btn btn-warning btn-xs" onclick="AlterarAnimal(@item.Id)">Alterar</button>
+                            </td>
+                            <td>
+                                <input class="form-control" id="nome_animal_@item.Id" value="@item.Nome" />
+                            </td>
+                            <td>
+                                <select class="form-control" id="tipo_alterar_@item.Id">
+                                    <option value="1" @(item.Tipo == 1 ? "selected" : "")>Cachorro</option>
+                                    <option value="2" @(item.Tipo == 2 ? "selected" : "")>Gato</option>
+                                </select>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script src="~/ajax/animalajx.js"></script>

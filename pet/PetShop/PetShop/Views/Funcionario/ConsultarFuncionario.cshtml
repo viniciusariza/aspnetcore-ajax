@@ -15,20 +15,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <button class="btn btn-warning btn-xs">Alterar</button>
-                        </td>
-                        <td>Marlon Souza</td>
-                        <td>33333333</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="btn btn-warning btn-xs">Alterar</button>
-                        </td>
-                        <td>Carlos</td>
-                        <td>33333333</td>
-                    </tr>
+
+                    @foreach (var item in ViewBag.ListarFuncionarios)
+                    {
+                        <tr>
+                            <td>
+                                <a href="/Funcionario/AlterarFuncionario?id=@item.IdFuncionario" class="btn btn-warning btn-xs">Alterar</a>
+                            </td>
+                            <td>@item.Nome</td>
+                            <td>@item.Telefone</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

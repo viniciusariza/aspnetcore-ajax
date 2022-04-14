@@ -5,8 +5,16 @@
     switch (tela) {
 
         case 1://Novo Cliente
-            if ($("#nome").val().trim() == "" || $("#tel").val().trim() == "" || $("#rua").val().trim() == ""
-                || $("#cidade").val().trim() == "" || $("#estado").val().trim() == "") {
+
+            if (
+                $("#nome").val().trim() == "" ||
+                $("#tel").val().trim() == "" ||
+                $("#rua").val().trim() == "" ||
+                $("#bairro").val().trim() == "" ||
+                $("#cidade").val().trim() == "" ||
+                $("#estado").val().trim() == ""
+            ) {
+
                 ret = false;
             }
             break;
@@ -53,6 +61,7 @@
 
     if (!ret) {
         toastr.warning(RetornaMsg(0));
-        return ret;
     }
+
+    return ret;
 }

@@ -17,37 +17,14 @@
         </div>
     </div>
 </div>
-<button class="btn btn-primary">Pesquisar</button>
+<center><button class="btn btn-primary" onclick="ListarAtendimentos()">Pesquisar</button></center>
 <hr />
-<div class="row">
+<div class="row" id="divResultado" style="display: none">
     <div class="col-12">
         <div class="card">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Ação</th>
-                        <th>Data</th>
-                        <th>Cliente</th>
-                        <th>Animal</th>
-                        <th>Funcionário</th>
-                        <th>Valor</th>
-                        <th>Descrição</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <button class="btn btn-warning btn-xs">Alterar</button>
-                        </td>
-                        <td>01/01/2021</td>
-                        <td>Claudinha</td>
-                        <td>Xaninha</td>
-                        <td>Selen</td>
-                        <td>R$12,00</td>
-                        <td>Teste de Descrição</td>
-                    </tr>
-                </tbody>
+            <table class="table table-hover" id="tabelaAtendimento">
             </table>
         </div>
     </div>
 </div>
+<script src="~/ajax/atendimento.js"></script>

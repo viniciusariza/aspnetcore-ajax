@@ -5,8 +5,11 @@
 
 <div class="row">
     <div class="col-12">
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Digite aqui para pesquisar o cliente..." id="filtro" onkeyup="FiltrarCliente()"/>
+        </div>
         <div class="card">
-            <table class="table table-hover">
+            <table class="table table-hover" id="tabelaCliente">
                 <thead>
                     <tr>
                         <th>Ação</th>
@@ -15,26 +18,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <button class="btn btn-warning btn-xs">Alterar</button>
-                            <button class="btn btn-warning btn-xs">Adicionar animal</button>
-                            <button class="btn btn-warning btn-xs">Atendimento</button>
-                        </td>
-                        <td>Claudinha</td>
-                        <td>33333333</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button class="btn btn-warning btn-xs">Alterar</button>
-                            <button class="btn btn-warning btn-xs">Adicionar animal</button>
-                            <button class="btn btn-warning btn-xs">Atendimento</button>
-                        </td>
-                        <td>Kevin</td>
-                        <td>33333333</td>
-                    </tr>
+
+                    @foreach (var item in ViewBag.ListarClientes)
+                    {
+                        <tr>
+                            <td>
+                                <a href="/Cliente/AlterarCliente?id=@item.IdCliente" class="btn btn-warning btn-xs">Alterar</a>
+                                <a href="/Animal/GerenciarAnimal?id=@item.IdCliente&nome=@item.Nome" class="btn btn-warning btn-xs">Gerenciar Animal</a>
+                                <a href="/Atendimento/NovoAtendimento?idNome=@item.IdCliente-@item.Nome" class="btn btn-warning btn-xs">Atendimento</a>
+                            </td>
+                            <td>@item.Nome</td>
+                            <td>@item.Telefone</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script src="~/ajax/clienteajx.js"></script>

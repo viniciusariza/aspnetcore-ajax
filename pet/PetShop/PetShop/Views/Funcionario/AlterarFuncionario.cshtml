@@ -1,44 +1,54 @@
-﻿
+﻿@model DAO.model.TbFuncionario
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Nome do Funcionário*</label>
-            <input class="form-control" id="nome" />
-        </div>
-        <div class="form-group">
-            <label>Telefone*</label>
-            <input class="form-control" id="tel" />
-        </div>
-        <div class="form-group">
-            <label>CPF*</label>
-            <input class="form-control" id="cpf" />
-        </div>
-        <div class="form-group">
-            <label>Rua*</label>
-            <input class="form-control" id="rua" />
-        </div>
+<div class="col-md-12">
+    <div class="form-group">
+        <input id="cod" type="hidden" value="@Model.IdFuncionario" />
+        <label>Nome do Funcionário*</label>
+        <input class="form-control" id="nome" value="@Model.Nome" />
     </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Bairro*</label>
-            <input class="form-control" id="bairro" />
-        </div>
-        <div class="form-group">
-            <label>Cidade*</label>
-            <input class="form-control" id="cidade" />
-        </div>
-        <div class="form-group">
-            <label>Estado*</label>
-            <input class="form-control" id="estado" />
-        </div>
-        <div class="form-group">
-            <label>Complemento</label>
-            <input class="form-control" id="complemento" />
-        </div>
+    <div class="form-group">
+        <label>Telefone*</label>
+        <input class="form-control" id="tel" value="@Model.Telefone"/>
+    </div>
+    <div class="form-group">
+        <label>CPF*</label>
+        <input class="form-control" id="cpf" value="@Model.Cpf"/>
+    </div>
+    <div class="form-group">
+        <label>Estado*</label>
+        <select class="form-control" id="estado" onchange="CarregarCidades(this.value)">
+            <option value="">Selecione</option>
+            @foreach (var item in ViewBag.Estados)
+            {
+                <option value="@item.IdEstado" @(item.IdEstado == Model.TbEndereco.FirstOrDefault().Cidade.EstadoId ? "selected" : "")>@item.NomeEstado - @item.SiglaEstado</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Cidade*</label>
+        <select class="form-control" id="cidade">
+            @foreach (var item in ViewBag.ListaCidadesFuncionario)
+            {
+                <option value="@item.IdCidade" @(item.IdCidade == Model.TbEndereco.FirstOrDefault().CidadeId ? "selected" : "")>@item.NomeCidade</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Rua*</label>
+        <input class="form-control" id="rua" value="@Model.TbEndereco.FirstOrDefault().Rua" />
+    </div>
+    <div class="form-group">
+        <label>Bairro*</label>
+        <input class="form-control" id="bairro" value="@Model.TbEndereco.FirstOrDefault().Bairro"/>
+    </div>
+    <div class="form-group">
+        <label>Complemento</label>
+        <input class="form-control" id="complemento" value="@Model.TbEndereco.FirstOrDefault().Complemento" />
     </div>
 </div>
-<button class="btn btn-success" onclick="Check(4)">Alterar</button>
+<button class="btn btn-success" onclick="AlteraFuncionario()">Alterar</button>
+<script src="~/ajax/geralajx.js"></script>
+<script src="~/ajax/funcionarioajx.js"></script>

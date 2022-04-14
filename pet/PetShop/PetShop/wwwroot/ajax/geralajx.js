@@ -13,7 +13,7 @@
 
                 $(dados).each(function () {
 
-                    $("<option>").val(this.id).text(this.nomeCidade).appendTo(comboCidade);
+                    $("<option>").val(this.idCidade).text(this.nomeCidade).appendTo(comboCidade);
 
                 })
             } else {

@@ -10,6 +10,15 @@ namespace PetShop
 {
     public class _base : Controller
     {
+
+        public int CodigoLogado
+        {
+            get
+            {
+                return 1;
+            }
+        }
+
         public enum Paginas
         {
             NovoCliente,
