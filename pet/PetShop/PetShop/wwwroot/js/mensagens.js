@@ -12,6 +12,9 @@
         case -1:
             msg = "Ocorreu um erro, tente mais tarde!";
             break;
+        case -2:
+            msg = "Usuário não encontrado";
+            break;
     }
     
     return msg;

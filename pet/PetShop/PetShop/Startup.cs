@@ -67,7 +67,7 @@ namespace PetShop
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Cliente}/{action=ConsultarCliente}/{id?}");
+                    pattern: "{controller=Usuario}/{action=Logar}/{id?}");
             });
         }
     }

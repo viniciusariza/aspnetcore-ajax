@@ -1,5 +1,6 @@
 ﻿using DAO;
 using DAO.model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,34 @@ namespace PetShop
 {
     public class _base : Controller
     {
+        public void LimparSessao()
+        {
+            HttpContext.Session.Clear();
+        }
+
 
         public int CodigoLogado
         {
+            set
+            {
+                HttpContext.Session.SetInt32("cod", value);
+            }
             get
             {
-                return 1;
+                if (HttpContext == null || HttpContext.Session.GetInt32("cod") == null || HttpContext.Session.GetInt32("cod") == 0)
+                {
+                    return -100; //Não está logado
+                }
+                else
+                {
+                    return Convert.ToInt32(HttpContext.Session.GetInt32("cod"));
+                }
             }
+        }
+
+        public bool VerificarLogado()
+        {
+            return CodigoLogado == -100 ? false : true;
         }
 
         public enum Paginas
