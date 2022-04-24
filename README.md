@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>S/Aplicação WEB ASP.NET Core</h1>
+  <h1>Aplicação WEB ASP.NET Core</h1>
 </div>
 
   
